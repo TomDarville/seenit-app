@@ -9,11 +9,11 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   // Fallback Backend Routing context for Alpha
-  const API_BASE = "http://localhost:5000"; 
+const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
   useEffect(() => {
     // Automatically Seed Database and Authenticate a test account during Alpha phase
-    fetch(`${API_BASE}/api/alpha-seed`, { method: 'POST' })
+    fetch("http://localhost:5000/api/alpha-seed")
       .then(res => res.json())
       .then(data => {
         setUserId(data.userId);
