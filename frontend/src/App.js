@@ -13,7 +13,7 @@ const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
   useEffect(() => {
     // Automatically Seed Database and Authenticate a test account during Alpha phase
-    fetch("http://localhost:5000/api/alpha-seed")
+    fetch(`${API_BASE}/api/alpha-seed`)
       .then(res => res.json())
       .then(data => {
         setUserId(data.userId);
